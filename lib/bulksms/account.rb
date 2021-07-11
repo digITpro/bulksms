@@ -73,7 +73,7 @@ module Bulksms
     end
 
     def connection
-      Net::HTTP.start(host, port) do |http|
+      Net::HTTP.start(host, port, use_ssl: true) do |http|
         yield http
       end
     end

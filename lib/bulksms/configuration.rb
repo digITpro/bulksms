@@ -32,7 +32,7 @@ module Bulksms
     def initialize
       # Prepare default options
       self.country = :international
-      self.port = 5567
+      self.port = 443
       self.message_path = "/eapi/submission/send_sms/2/2.0"
       self.credits_path = "/eapi/user/get_credits/1/1.1"
       self.report_path  = "/eapi/status_reports/get_report/2/2.0"
@@ -44,18 +44,7 @@ module Bulksms
     # into a full hostname.
     def host
       return @host unless @host.to_s.empty?
-      case @country
-      when :uk
-        'www.bulksms.co.uk'
-      when :usa
-        'usa.bulksms.com'
-      when :safrica
-        'bulksms.2way.co.za'
-      when :spain
-        'bulksms.com.es'
-      else # :international
-        'bulksms.vsms.net'
-      end
+      'api-legacy2.bulksms.com'
     end
 
   end
